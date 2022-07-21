@@ -4,13 +4,13 @@ const horaActual = new Date();
 alert(horaActual);
 let nuevoObjeto;
 
-const lista = [parseInt(prompt('Ingrese la cantidad de numeros a la lista'))];
+const lista = [];
 
 menuInteractivo(lista);
 
 function menuInteractivo(lista){
 
-    let seleccion = prompt('Ingrese la operacion que desee \n 1.Agregar Producto \n 2.Quitar Producto por nombre\n 3.Quitar producto por precio\n 4.Buscar Producto por nombre\n 5.Buscar producto por precio\n 6.Imprimir lista')
+    const seleccion = prompt('Ingrese la operacion que desee \n 1.Agregar Producto \n 2.Quitar Producto por nombre\n 3.Quitar producto por precio\n 4.Buscar Producto por nombre\n 5.Buscar producto por precio\n 6.Imprimir lista')
         switch(seleccion){
             case '1':
                 agregarProductos(lista);
@@ -47,11 +47,11 @@ return lista;
 }
 
 function agregarProductos(lista){
-    let condicion = false;    
-    let decision1;
+    const condicion = false;    
+    const decision1 = 'no';
 
     do {
-        for (let i = 0; index < lista.length; index++) {
+        for (let i = 0; i < lista.length; i++) {
              constructorProducto;
 
             if (lista.includes (nuevoObjeto)) {
@@ -72,7 +72,7 @@ function agregarProductos(lista){
 }
 
 function quitarProductoPorNombre(lista){
-    let elementoaEliminar = prompt.toString('Ingrese el Producto a Eliminar: ');
+    const elementoaEliminar = prompt.toString('Ingrese el Producto a Eliminar: ');
 
     for (const i of lista) {
         if (lista.includes(elementoaEliminar)) {
@@ -84,7 +84,7 @@ function quitarProductoPorNombre(lista){
 }
 
 function quitarProductoPorPrecio(lista){
-    let elementoaEliminar = prompt('Ingrese el precio del Producto a Eliminar: ');
+    const elementoaEliminar = prompt.parseInt(('Ingrese el precio del Producto a Eliminar: '));
 
     for (const i of lista) {
         if (lista.precio.includes(elementoaEliminar)) {
@@ -99,9 +99,9 @@ const buscarPorNombre = prompt.toString(lista.filter((el)=> el.nombre.includes(b
 
 const buscarPorPrecio = prompt(lista.filter((el)=> el.precio.includes(buscarPorPrecio)));
 
-function imprimirLista(){
+function imprimirLista(lista){
     alert('Imprimiendo lista..')
-    for (let index = 0; index < lista.length; index++) {
-        alert (lista[index]);
+    for (let i = 0; i < lista.length; i++) {
+        alert (lista[i]);
     }
 }
