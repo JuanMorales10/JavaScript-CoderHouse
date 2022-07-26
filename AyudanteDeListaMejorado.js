@@ -1,10 +1,17 @@
+class Producto{
+    constructor(nombre,precio){
+        this.nombre=nombre;
+        this.precio=precio;
+    }
+}
+
+
 
 //Array de Productos
 const horaActual = new Date();
 alert(horaActual);
-let nuevoObjeto;
 
-const lista = [];
+const lista = [''];
 
 menuInteractivo(lista);
 
@@ -37,71 +44,78 @@ function menuInteractivo(lista){
 
 }
 
-function constructorProducto(lista){
-     this.nuevoObjeto = nuevoObjeto = {
-        nombre : prompt.toString('Ingrese el nombre del producto'),
-        precio : prompt('Ingrese el precio del mismo')
+
+function agregarProductos(lista){ 
+     constructorProducto(lista);
+     menuInteractivo(lista);
     }
-lista.push(nuevoObjeto);
-return lista;
-}
 
-function agregarProductos(lista){
-    const condicion = false;    
-    const decision1 = 'no';
-
-    do {
-        for (let i = 0; i < lista.length; i++) {
-             constructorProducto;
-
-            if (lista.includes (nuevoObjeto)) {
-             decision1 = prompt('Su producto: '+ nuevoObjeto +' ya esta agregado a la lista, desea agregarlo de todas formas?');
-                
-            } else if(decision1.matchAll('si')){
-                lista.push(nuevoObjeto);
-            }
-            }
-            const respuesta = prompt('Desea ingresar mas producto a la lista?')
-
-                if (respuesta.matchAll('si')) {
-                    condicion = false;
-                } else if(respuesta.matchAll('no')){
-                    condicion = true;
+    function quitarProductoPorNombre(lista){
+        const elementoaEliminar = prompt('Ingrese el nombre del Producto a Eliminar: ');
+    
+        for (const el of lista) {
+            if (el.nombre == elementoaEliminar) {
+                console.log(el)   
+                const newArray = lista.filter((item) => item.nombre !== elementoaEliminar);
+                imprimirLista(newArray);
                 }
-        } while (condicion);
-}
-
-function quitarProductoPorNombre(lista){
-    const elementoaEliminar = prompt.toString('Ingrese el Producto a Eliminar: ');
-
-    for (const i of lista) {
-        if (lista.includes(elementoaEliminar)) {
-               lista.splice(i,1);
-           } else {
-           alert('El Producto ingresado no se ha encontrado en la lista');
-            }
+        }
+        return lista;
     }
-}
 
 function quitarProductoPorPrecio(lista){
-    const elementoaEliminar = prompt.parseInt(('Ingrese el precio del Producto a Eliminar: '));
+    const elementoaEliminar = prompt('Ingrese el precio del Producto a Eliminar: ');
 
-    for (const i of lista) {
-        if (lista.precio.includes(elementoaEliminar)) {
-               lista.splice(i,1);
-           } else {
-           alert('El producto ingresado no se ha encontrado en la lista');
+    for (const el of lista) {
+        if (el.precio == elementoaEliminar) {
+            console.log(el)   
+            const newArray = lista.filter((item) => item.precio !== elementoaEliminar);
+            imprimirLista(newArray);
             }
     }
+    return lista;
 }
 
-const buscarPorNombre = prompt.toString(lista.filter((el)=> el.nombre.includes(buscarPorNombre)));
 
-const buscarPorPrecio = prompt(lista.filter((el)=> el.precio.includes(buscarPorPrecio)));
+function buscarPorNombre(lista){
+
+    const nombreaBuscar = prompt('Ingrese el precio a buscar')
+
+    for (const el of lista) {
+        if (el.nombre == nombreaBuscar) {
+            console.log(el)
+            alert('Usted tiene un producto con ese nombre ');
+        }
+    }
+    return lista;
+}
+
+function buscarPorPrecio(lista){
+
+    const precioaBuscar = prompt('Ingrese el precio a buscar')
+
+    for (const el of lista) {
+        if (el.precio == precioaBuscar) {
+            console.log(el)
+            alert('Usted tiene un producto con ese precio llamado: '+el.nombre);
+        }
+    }
+    return lista;
+}
+
 
 function imprimirLista(lista){
     alert('Imprimiendo lista..')
     for (let i = 0; i < lista.length; i++) {
-        alert (lista[i]);
+        console.log(lista[i]);
     }
+}
+
+function constructorProducto(lista){
+    const producto = new Producto();
+               
+                producto.nombre = prompt('Ingrese el nombre del producto');
+                producto.precio = prompt('Ingrese el precio del producto');
+               
+                lista.push(producto);
 }
